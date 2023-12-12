@@ -9,17 +9,19 @@ import static java.lang.Math.max;
 
 public class LengthOfLongestSubstring {
     // 滑动窗口
-    public int lengthOfLongestSubstring(String s) {
-        Map<Character,Integer> map = new HashMap<>();
-        int i = -1, res = 0;
-        for (int j = 0; j < s.length(); j++) {
-            if(map.containsKey(s.charAt(j))){
-                i = max(i,map.get(s.charAt(j)));
+    public int lengthOfLongestSubstring(String s) { int len = 0;
+        int left = 0;
+        char[] chars = s.toCharArray();
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < chars.length; i++) {
+            if (map.containsKey(chars[i])) {
+                left = Math.max(left, map.get(chars[i]) + 1);
             }
-            map.put(s.charAt(j),j);
-            res = max(res,j-1);
+            map.put(chars[i], i);
+            len = Math.max(len, i - left + 1);
+
         }
-    return res;
+        return len;
     }
 
 
