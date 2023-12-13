@@ -19,7 +19,6 @@ public class LengthOfLongestSubstring {
             }
             map.put(chars[i], i);
             len = Math.max(len, i - left + 1);
-
         }
         return len;
     }

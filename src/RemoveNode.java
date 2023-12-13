@@ -24,6 +24,23 @@ public class RemoveNode {
     }
 
     /**
+     * 反转链表
+     * @param head 头节点
+     * @return 反转后的头节点
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode node = null;
+        while (head != null){
+            ListNode temp = head.next;
+            head.next = node;
+            node = head;
+            head = temp;
+        }
+        return node;
+
+    }
+
+    /**
      * 合成两个有序链表
      * @param list1 链表1
      * @param list2 链表2
